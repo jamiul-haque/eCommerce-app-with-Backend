@@ -4,9 +4,15 @@ import '../../common_widgets/bg_widget.dart';
 import '../../common_widgets/custom_textfield.dart';
 import '../../common_widgets/our_button.dart';
 
-class SignupScreen extends StatelessWidget {
+class SignupScreen extends StatefulWidget {
   const SignupScreen({Key? key}) : super(key: key);
 
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
+  bool? isCheck = false;
   @override
   Widget build(BuildContext context) {
     return bgWidget(
@@ -34,9 +40,14 @@ class SignupScreen extends StatelessWidget {
                 Row(
                   children: [
                     Checkbox(
-                      checkColor: redColor,
-                      value: false,
-                      onChanged: (newValue) {},
+                      activeColor: redColor,
+                      checkColor: whiteColor,
+                      value: isCheck,
+                      onChanged: (newValue) {
+                        setState(() {
+                          isCheck = newValue;
+                        });
+                      },
                     ),
                     10.widthBox,
                     Expanded(
@@ -45,25 +56,25 @@ class SignupScreen extends StatelessWidget {
                         TextSpan(
                             text: "I agree to the ",
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: fontGrey,
                             )),
                         TextSpan(
                             text: termAndConditions,
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: redColor,
                             )),
                         TextSpan(
                             text: " & ",
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: fontGrey,
                             )),
                         TextSpan(
                             text: privacyPolicy,
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: redColor,
                             )),
                       ])),
@@ -73,31 +84,25 @@ class SignupScreen extends StatelessWidget {
                 10.heightBox,
                 ourButton(
                         title: signup,
-                        color: redColor,
+                        color: isCheck == true ? redColor : lightGolden,
                         textColor: whiteColor,
                         onPress: () {})
                     .box
                     .width(context.screenWidth - 50)
                     .make(),
                 10.heightBox,
-                RichText(
-                  text: const TextSpan(children: [
-                    TextSpan(
-                        text: alrayhaveaccount,
-                        style: TextStyle(
-                          fontFamily: bold,
-                          color: fontGrey,
-                        )),
-                    TextSpan(
-                        text: login,
-                        style: TextStyle(
-                          fontFamily: bold,
-                          color: redColor,
-                        )),
-                  ]),
-                ).onTap(() {
-                  Get.back();
-                })
+                Row(
+                  children: [
+                    alrayhaveaccount.text.color(fontGrey).make(),
+                    login.text
+                        .color(redColor)
+                        .fontFamily(bold)
+                        .make()
+                        .onTap(() {
+                      Get.back();
+                    })
+                  ],
+                )
               ],
             )
                 .box

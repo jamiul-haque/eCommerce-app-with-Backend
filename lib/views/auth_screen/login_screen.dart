@@ -5,6 +5,7 @@ import 'package:ecommerce_app/common_widgets/our_button.dart';
 import 'package:ecommerce_app/consts/consts.dart';
 import 'package:ecommerce_app/consts/lists.dart';
 import 'package:ecommerce_app/views/auth_screen/signup_screen.dart';
+import 'package:ecommerce_app/views/home_screen/home.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -33,13 +34,12 @@ class LoginScreen extends StatelessWidget {
                         onPressed: () {}, child: forgetpass.text.make())),
                 10.heightBox,
                 ourButton(
-                        title: login,
-                        color: redColor,
-                        textColor: whiteColor,
-                        onPress: () {})
-                    .box
-                    .width(context.screenWidth - 50)
-                    .make(),
+                    title: login,
+                    color: redColor,
+                    textColor: whiteColor,
+                    onPress: () {
+                      Get.to(() => const Home());
+                    }).box.width(context.screenWidth - 50).make(),
                 15.heightBox,
                 createnewaccount.text.color(fontGrey).make(),
                 15.heightBox,

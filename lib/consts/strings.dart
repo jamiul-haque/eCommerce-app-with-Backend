@@ -16,3 +16,20 @@ const loginwith = "Log in with";
 const privacyPolicy = "Privacy Policy";
 const termAndConditions = "Terms and Conditions";
 const alrayhaveaccount = "alray have an account ? ";
+
+// Home
+
+const home = "Home";
+const categories = "Categories";
+const cart = "Cart";
+const account = "Account";
+
+// Home screen
+
+const searchanything = "Search Anything..";
+const todayDeal = "Today Deal";
+const flashsale = "Flash Sale";
+const topSellers = "Top Sellers";
+const brand = "Top Brand";
+const topCategories = "Top Categories";
+const featuredCagegories = "Featured Categories";
