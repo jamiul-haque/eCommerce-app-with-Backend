@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/consts/consts.dart';
 import 'package:ecommerce_app/consts/lists.dart';
+import 'package:ecommerce_app/views/home_screen/components/featured_button.dart';
 import '../../common_widgets/home_buttons.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -33,7 +34,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          10.heightBox,
+          15.heightBox,
           Expanded(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
@@ -57,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                             .make();
                       }),
 
-                  10.heightBox,
+                  15.heightBox,
                   // deals buttons
 
                   Row(
@@ -72,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                             )),
                   ),
 
-                  10.heightBox,
+                  15.heightBox,
 
                   // 2nd swipers slider
                   VxSwiper.builder(
@@ -91,7 +92,7 @@ class HomeScreen extends StatelessWidget {
                             .margin(const EdgeInsets.symmetric(horizontal: 8))
                             .make();
                       }),
-                  10.heightBox,
+                  15.heightBox,
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -112,7 +113,7 @@ class HomeScreen extends StatelessWidget {
                                       : topSellers,
                             )),
                   ),
-                  10.heightBox,
+                  15.heightBox,
                   // featured categories
                   Align(
                       alignment: Alignment.centerLeft,
@@ -121,6 +122,142 @@ class HomeScreen extends StatelessWidget {
                           .size(18)
                           .fontFamily(semibold)
                           .make()),
+                  15.heightBox,
+
+                  // horizontal slider
+
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(
+                        3,
+                        (index) => Column(
+                          children: [
+                            featuredButton(
+                                featuredTitles1[index], featuredImages1[index]),
+                            10.heightBox,
+                            featuredButton(
+                                featuredTitles2[index], featuredImages2[index])
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  // featured product
+                  15.heightBox,
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    width: double.infinity,
+                    decoration: const BoxDecoration(color: redColor),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        featuredProduct.text.white
+                            .fontFamily(bold)
+                            .size(18)
+                            .make(),
+                        5.heightBox,
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                              children: List.generate(
+                            6,
+                            (index) => Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(imgP1,
+                                    width: 150, fit: BoxFit.cover),
+                                10.heightBox,
+                                "Lap Top 4GB / 64GB"
+                                    .text
+                                    .fontFamily(semibold)
+                                    .color(darkFontGrey)
+                                    .make(),
+                                10.heightBox,
+                                "\$600"
+                                    .text
+                                    .color(redColor)
+                                    .fontFamily(bold)
+                                    .size(16)
+                                    .make()
+                              ],
+                            )
+                                .box
+                                .white
+                                .roundedSM
+                                .margin(
+                                    const EdgeInsets.symmetric(horizontal: 5))
+                                .padding(const EdgeInsets.all(8))
+                                .make(),
+                          )),
+                        ),
+                      ],
+                    ),
+                  ),
+                  15.heightBox,
+
+                  // Trhird swipess slider
+
+                  VxSwiper.builder(
+                      aspectRatio: 16 / 9,
+                      autoPlay: true,
+                      height: 150,
+                      itemCount: secondSlidersList.length,
+                      itemBuilder: (context, index) {
+                        return Image.asset(
+                          secondSlidersList[index],
+                          fit: BoxFit.fill,
+                        )
+                            .box
+                            .rounded
+                            .clip(Clip.antiAlias)
+                            .margin(const EdgeInsets.symmetric(horizontal: 8))
+                            .make();
+                      }),
+
+                  15.heightBox,
+
+                  // all product section
+                  GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 6,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 8,
+                              crossAxisSpacing: 8,
+                              mainAxisExtent: 300),
+                      itemBuilder: (context, index) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(imgP5,
+                                width: 200, height: 200, fit: BoxFit.cover),
+                            const Spacer(),
+                            "Lap Top 4GB / 64GB"
+                                .text
+                                .fontFamily(semibold)
+                                .color(darkFontGrey)
+                                .make(),
+                            10.heightBox,
+                            "\$600"
+                                .text
+                                .color(redColor)
+                                .fontFamily(bold)
+                                .size(16)
+                                .make(),
+                            10.heightBox,
+                          ],
+                        )
+                            .box
+                            .white
+                            .roundedSM
+                            .margin(const EdgeInsets.symmetric(horizontal: 4))
+                            .padding(const EdgeInsets.all(12))
+                            .make();
+                      }),
                 ],
               ),
             ),

@@ -33,3 +33,11 @@ const topSellers = "Top Sellers";
 const brand = "Top Brand";
 const topCategories = "Top Categories";
 const featuredCagegories = "Featured Categories";
+
+const womenDress = "Women Dress",
+    girlsWatches = "Girls Watches",
+    boysGlasses = "Boys Glasses",
+    tSharts = "TSharts",
+    girlsDress = "Girls Dresses",
+    mobilePhone = "Mobile Phone",
+    featuredProduct = "Featured Product";
