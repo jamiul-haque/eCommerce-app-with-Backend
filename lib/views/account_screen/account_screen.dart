@@ -9,9 +9,9 @@ class AccountScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("Profile"),
+        title: const Text("Profile"),
       ),
-      body: Body(),
+      body: const Body(),
     );
   }
 }
